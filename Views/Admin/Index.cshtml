@@ -1,0 +1,84 @@
+﻿@model IEnumerable<myFlightapp.Models.FlightModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_flightLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllowRoundTrip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Travel_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TakeOffTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight_duration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowRoundTrip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Travel_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakeOffTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flight_duration)
+            </td>
+            <td>
+                 @Html.ActionLink("Edit", "Edit", new {id=item.Id /* id = Model.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new {id=item.Id /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
